@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RSS_Chanel.Models.RssFeed>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rss Chanel by Gagreenz</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>Приветствую друг, найди новости скорее, будет жить чуть-чуть страшней =)</h2>
+    <table>
+        <tr>
+            <td>
+                <form method = 'POST' controller = 'Main'>
+                <input type="Text" name = "tag" />
+                <input type="submit" value = "Поиск" />
+                </form>
+            </td>
+        </tr>
+        @if(Model == null)
+        {
+            <tr>
+                <td>
+                    <h1>Ваш поиск обречен, попробуйте другие слова</h1>
+                </td>
+            </tr>
+        }
+        else
+        @foreach (var feed in Model)
+        {
+            <tr>
+                <td>
+                    <br>
+                    <h1>@feed.Description</h1>
+                </td>
+            </tr>
+            @foreach (var item in feed.Articles)
+            {
+                <tr>
+                    <td>
+                        <a href = @item.Link>@item.Title</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+</body>
+</html>
