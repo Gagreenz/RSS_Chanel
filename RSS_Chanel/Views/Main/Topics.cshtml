@@ -1,0 +1,37 @@
+﻿@model List<string>
+@using RSS_Chanel.Utilities
+@{
+    var feed = FeedReaderUtil.GetTopics(Model[0]);
+}
+<head>
+    <link href="~/css/Topics.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <table>
+        @if(feed == null)
+        {
+            <tr>
+                <td>
+                    <h1>Ошибка соединения Rss_Chanel_IS_NOT_AVAIBLE</h1>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                   <h1>@Model[1]</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @foreach (var item in feed.Articles)
+                    {
+                        <div><a href = @item.Link>@item.Title</a></div>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>

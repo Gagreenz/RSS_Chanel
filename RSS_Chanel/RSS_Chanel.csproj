@@ -10,4 +10,8 @@
     <PackageReference Include="CodeHollow.FeedReader" Version="1.2.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Main\Новая папка\" />
+  </ItemGroup>
+
 </Project>

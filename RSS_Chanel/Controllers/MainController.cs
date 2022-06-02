@@ -18,6 +18,10 @@ namespace RSS_Chanel.Controllers
             tempFeed.Add(FeedReaderUtil.GetFeedFromUrl("https://www.mk.ru/rss/index.xml").Result);
             return tempFeed;
         }
+        public ActionResult GetTopics()
+        {
+            return PartialView("Topics");
+        }
         public IActionResult Index()
         {
             feeds = getFeeds();

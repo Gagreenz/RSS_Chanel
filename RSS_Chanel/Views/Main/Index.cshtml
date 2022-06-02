@@ -1,4 +1,5 @@
-﻿@model IEnumerable<RSS_Chanel.Models.RssFeed>
+﻿@using RSS_Chanel.Utilities
+@model IEnumerable<RSS_Chanel.Models.RssFeed>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,36 @@
 <body>
     <h2>Найдем новости на любой вкус</h2>
     <table>
+        <tr>
+            <td width = "25%">
+                @await Html.PartialAsync("Topics",new List<string>(){
+                    "https://1prime.ru/export/rss2/state_regulation/index.xml",
+                    "Экономика"
+                }
+                )
+            </td>
+            <td width = "25%">
+                @await Html.PartialAsync("Topics",new List<string>(){
+                    "https://www.sports.ru/rss/rubric.xml?s=208",
+                    "Спорт"
+                }
+                )
+            </td>
+            <td width = "25%">
+                @await Html.PartialAsync("Topics",new List<string>(){
+                    "https://artinvestment.ru/rss.php",
+                    "Культура"
+                }
+                )
+            </td>
+            <td width = "25%">
+                @await Html.PartialAsync("Topics",new List<string>(){
+                    "https://edu.ru/news/it-v-obrazovanii/feed.rss",
+                    "Образование"
+                }
+                )
+            </td>
+        </tr>
         <tr>
             <td>
                 <form method = 'POST' controller = 'Main'>
